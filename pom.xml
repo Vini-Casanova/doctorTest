@@ -14,7 +14,7 @@
 	<name>heathCare</name>
 	<description>BackEnd with MongoDb</description>
 	<properties>
-		<java.version>19</java.version>
+		<java.version>18</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
