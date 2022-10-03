@@ -15,6 +15,7 @@
 	<description>BackEnd with MongoDb</description>
 	<properties>
 		<java.version>18</java.version>
+		
 	</properties>
 	<dependencies>
 		<dependency>
@@ -38,7 +39,6 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
