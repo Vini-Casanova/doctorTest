@@ -1,6 +1,9 @@
-package com.example.heathCare;
+package com.example.heathCare.respository;
 
 import org.springframework.stereotype.Repository;
+
+import com.example.heathCare.models.Pacient;
+
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 
