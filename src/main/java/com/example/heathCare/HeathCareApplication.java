@@ -8,8 +8,7 @@ public class HeathCareApplication{
 	
 	public static void main(String[] args) {
 		SpringApplication.run(HeathCareApplication.class, args);
-		
-		System.out.println("Vencemo");
+
 	}
 
 		

@@ -26,19 +26,18 @@ public class PacientController {
 	@PostMapping("/addPacient")
 	public String savePacient(@RequestBody Pacient pacient) {
 	    try {
-	      if(pacient.getId() != null) {
-	        if(repository.findById(pacient.getId())!= null) {
+	      if(!pacient.getId().isEmpty()) {
+	        if(repository.findById(pacient.getId()).isPresent()) {
               repository.save(pacient);
               return "Pacient Edited";
             }
-	      } 
-	        String pacientId = ""+(repository.count()+1);
-	        pacient.setId(pacientId);
+	      }
+	        pacient.setId(String.valueOf(repository.count()+1));
 	        repository.save(pacient);
 	        return "Pacient Save with id: "+ pacient.getId();
         } catch (Exception e) {
-          repository.save(pacient);
-          return "Pacient Edited";
+          //repository.save(pacient);
+          return "Erro Adding Pacient";
         }
 	}
 	
@@ -54,9 +53,14 @@ public class PacientController {
 	}
 	
 	@DeleteMapping("/deletePacient/{id}")
-	public String deletePacient(@PathVariable String id) {
-		repository.deleteById(id);
-		return "Pacient with id: "+ id +  "has been deleted";
+	public boolean deletePacient(@PathVariable String id) {
+		try{
+			repository.deleteById(id);
+			return true;
+		}catch (Exception e){
+			return false;
+		}
+
 	}
 	
 	
