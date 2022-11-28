@@ -25,8 +25,8 @@ public class MedicController {
   
   @PostMapping("/addMedic")
   public String savePacient(@RequestBody Medic medic) {
-      if(medic.getId() != null) {
-        if(repository.findById(medic.getId())!= null) {
+      if(!medic.getId().isEmpty()) {
+        if(repository.findById(medic.getId()).isPresent()) {
           repository.save(medic);
           return "Medic Edited";
         }
